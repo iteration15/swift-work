@@ -77,6 +77,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let spinForever = SKAction.repeatActionForever(spin)
         slotGlow.runAction(spinForever)
     }
+    
+    func collisionBetweenBall(ball: SKNode, object: SKNode) {
+        if object.name == "good" {
+            destroyBall(ball)
+        } else if object.name == "ball" {
+            destroyBall(ball)
+        }
+    }
+    
+    func destroyBall(ball: SKNode) {
+        ball.removeFromParent()
+    }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
