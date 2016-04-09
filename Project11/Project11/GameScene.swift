@@ -89,6 +89,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func destroyBall(ball: SKNode) {
         ball.removeFromParent()
     }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        if contact.bodyA.node!.name == "ball" {
+            collisionBetweenBall(contact.bodyA.node!, object: contact.bodyB.node!)
+        } else if contact.bodyB.node!.name == "ball" {
+            collisionBetweenBall(contact.bodyB.node!, object: contact.bodyA.node!)
+        }
+    }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
