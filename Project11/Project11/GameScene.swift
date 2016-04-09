@@ -10,6 +10,14 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var scoreLabel: SKLabelNode!
+    
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
+    
     override func didMoveToView(view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
         background.position = CGPoint(x: 512, y: 384)
@@ -24,6 +32,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         makeSlotAt(CGPoint(x: 384, y: 0), isGood: true)
         
         makeBouncerAt(CGPoint(x: 512, y: 0))
+        
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "Score: 0"
+        scoreLabel.horizontalAlignmentMode = .Right
+        scoreLabel.position = CGPoint(x: 980, y: 700)
+        addChild(scoreLabel)
         
     }
     
