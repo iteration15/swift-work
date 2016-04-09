@@ -8,7 +8,8 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
     override func didMoveToView(view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
         background.position = CGPoint(x: 512, y: 384)
@@ -17,6 +18,8 @@ class GameScene: SKScene {
         addChild(background)
         
         physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
+        
+        physicsWorld.contactDelegate = self
         
         makeSlotAt(CGPoint(x: 384, y: 0), isGood: true)
         
@@ -30,18 +33,19 @@ class GameScene: SKScene {
             
             let ball = SKSpriteNode(imageNamed: "ballRed")
             ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+            ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
             ball.physicsBody!.restitution = 0.4
             ball.position = location
             ball.name = "ball"
             addChild(ball)
         }
-       
     }
     
     func makeBouncerAt(position: CGPoint) {
         let bouncer = SKSpriteNode(imageNamed: "bouncer")
         bouncer.position = position
         bouncer.physicsBody = SKPhysicsBody(circleOfRadius: bouncer.size.width / 2.0)
+        bouncer.physicsBody!.contactTestBitMask = bouncer.physicsBody!.collisionBitMask
         bouncer.physicsBody!.dynamic = false
         addChild(bouncer)
     }
