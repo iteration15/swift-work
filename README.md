@@ -1,3 +1,3 @@
 # swiftwork
 
-## projects to learn Swift to create apps and stuff.
+projects to learn Swift to create apps and stuff.
