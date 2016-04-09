@@ -21,6 +21,13 @@ class GameScene: SKScene {
     
     var player: SKSpriteNode!
     var motionManager: CMMotionManager!
+    var scoreLabel: SKLabelNode!
+    
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
     
     override func didMoveToView(view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -28,6 +35,12 @@ class GameScene: SKScene {
         background.blendMode = .Replace
         background.zPosition = -1
         addChild(background)
+        
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "Score: 0"
+        scoreLabel.horizontalAlignmentMode = .Left
+        scoreLabel.position = CGPoint(x: 16, y: 16)
+        addChild(scoreLabel)
         
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         
