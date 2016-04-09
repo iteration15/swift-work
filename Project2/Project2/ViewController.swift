@@ -32,8 +32,16 @@ class ViewController: UIViewController {
         countries.append("spain")
         countries.append("uk")
         countries.append("us")
+        
+        askQuestion()
     }
 
+    func askQuestion() {
+        button1.setImage(UIImage(named: countries[0]), forState: .Normal)
+        button2.setImage(UIImage(named: countries[1]), forState: .Normal)
+        button3.setImage(UIImage(named: countries[2]), forState: .Normal)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
