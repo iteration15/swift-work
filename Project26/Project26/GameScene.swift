@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Dean Kuhta. All rights reserved.
 //
 
+import CoreMotion
 import SpriteKit
 
 enum CollisionTypes: UInt32 {
@@ -19,6 +20,7 @@ enum CollisionTypes: UInt32 {
 class GameScene: SKScene {
     
     var player: SKSpriteNode!
+    var motionManager: CMMotionManager!
     
     override func didMoveToView(view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -27,7 +29,13 @@ class GameScene: SKScene {
         background.zPosition = -1
         addChild(background)
         
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        
+        motionManager = CMMotionManager()
+        motionManager.startAccelerometerUpdates()
+        
         loadLevel()
+        createPlayer()
         
     }
     
@@ -105,9 +113,18 @@ class GameScene: SKScene {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+            #if (arch(i386) || arch(x86_64))
+                if let currentTouch = lastTouchPosition {
+                    let diff = CGPoint(x: currentTouch.x - player.position.x, y: currentTouch.y - player.position.y)
+                    physicsWorld.gravity = CGVector(dx: diff.x / 100, dy: diff.y / 100)
+                }
+            #else
+                if let accelerometerData = motionManager.accelerometerData {
+                    physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -50, dy: accelerometerData.acceleration.x * 50)
+                }
+            #endif
     }
     
 }
