@@ -18,11 +18,7 @@ class GameScene: SKScene {
         
         physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
         
-        let bouncer = SKSpriteNode(imageNamed: "bouncer")
-        bouncer.position = CGPoint(x: 512, y: 0)
-        bouncer.physicsBody = SKPhysicsBody(circleOfRadius: bouncer.size.width / 2.0)
-        bouncer.physicsBody!.dynamic = false
-        addChild(bouncer)
+        makeBouncerAt(CGPoint(x: 512, y: 0))
         
     }
     
@@ -37,6 +33,14 @@ class GameScene: SKScene {
             addChild(ball)
         }
        
+    }
+    
+    func makeBouncerAt(position: CGPoint) {
+        let bouncer = SKSpriteNode(imageNamed: "bouncer")
+        bouncer.position = position
+        bouncer.physicsBody = SKPhysicsBody(circleOfRadius: bouncer.size.width / 2.0)
+        bouncer.physicsBody!.dynamic = false
+        addChild(bouncer)
     }
    
     override func update(currentTime: CFTimeInterval) {
