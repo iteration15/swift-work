@@ -9,9 +9,28 @@
 import GameplayKit
 import SpriteKit
 
+enum GameState {
+    case ShowingLogo
+    case Playing
+    case Dead
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player: SKSpriteNode!
+    var scoreLabel: SKLabelNode!
+    var backgroundMusic: SKAudioNode!
+    
+    var logo: SKSpriteNode!
+    var gameOver: SKSpriteNode!
+    
+    var gameState = GameState.ShowingLogo
+    
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "SCORE: \(score)"
+        }
+    }
     
     override func didMoveToView(view: SKView) {
         
@@ -19,20 +38,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createSky()
         createBackground()
         createGround()
-        //initRocks()
+        createScore()
+        createLogos()
+        initRocks()
         
         physicsWorld.gravity = CGVectorMake(0.0, -5.0)
         physicsWorld.contactDelegate = self
         
+        backgroundMusic = SKAudioNode(fileNamed: "music.m4a")
+        addChild(backgroundMusic)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        player.physicsBody?.velocity = CGVectorMake(0, 0)
-        player.physicsBody?.applyImpulse(CGVectorMake(0, 20))
-       
+        switch gameState {
+        case .ShowingLogo:
+            gameState = .Playing
+            
+            let fadeOut = SKAction.fadeOutWithDuration(0.5)
+            let remove = SKAction.removeFromParent()
+            let wait = SKAction.waitForDuration(0.5)
+            let activatePlayer = SKAction.runBlock { [unowned self] in
+                self.player.physicsBody?.dynamic = true
+                self.initRocks()
+            }
+            
+            let sequence = SKAction.sequence([fadeOut, wait, activatePlayer, remove])
+            logo.runAction(sequence)
+            
+        case .Playing:
+            player.physicsBody?.velocity = CGVectorMake(0, 0)
+            player.physicsBody?.applyImpulse(CGVectorMake(0, 20))
+            
+        case .Dead:
+            let scene = GameScene(fileNamed: "GameScene")!
+            scene.scaleMode = .ResizeFill
+            let transition = SKTransition.moveInWithDirection(SKTransitionDirection.Right, duration: 1)
+            self.view?.presentScene(scene, transition: transition)
+        }
     }
    
     override func update(currentTime: CFTimeInterval) {
+        guard player != nil else { return }
+        
         let value = player.physicsBody!.velocity.dy * 0.001
         let rotate = SKAction.rotateByAngle(value, duration: 0.1)
         player.runAction(rotate)
@@ -183,5 +230,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         runAction(repeatForever)
     }
+    
+    func createScore() {
+        scoreLabel = SKLabelNode(fontNamed: "Optima-ExtraBlack")
+        scoreLabel.fontSize = 24
+        
+        scoreLabel.position = CGPointMake(CGRectGetMaxX(frame) - 20, CGRectGetMaxY(frame) - 40)
+        scoreLabel.horizontalAlignmentMode = .Right
+        scoreLabel.text = "SCORE: 0"
+        scoreLabel.fontColor = UIColor.blackColor()
+        
+        addChild(scoreLabel)
+    }
+    
+    func createLogos() {
+        logo = SKSpriteNode(imageNamed: "logo")
+        logo.position = CGPoint(x: CGRectGetMidX(frame), y: CGRectGetMidY(frame))
+        addChild(logo)
+        
+        gameOver = SKSpriteNode(imageNamed: "gameover")
+        gameOver.position = CGPoint(x: CGRectGetMidX(frame), y: CGRectGetMidY(frame))
+        gameOver.alpha = 0
+        addChild(gameOver)
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        if contact.bodyA.node?.name == "scoreDetect" || contact.bodyB.node?.name == "scoreDetect" {
+            if contact.bodyA.node == player {
+                contact.bodyB.node?.removeFromParent()
+            } else {
+                contact.bodyA.node?.removeFromParent()
+            }
+            
+            let sound = SKAction.playSoundFileNamed("coin.wav", waitForCompletion: false)
+            runAction(sound)
+            
+            score += 1
+            
+            return
+        }
+        
+        if contact.bodyA.node == player || contact.bodyB.node == player {
+            if let explosion = SKEmitterNode(fileNamed: "PlayerExplosion") {
+                explosion.position = player.position
+                addChild(explosion)
+            }
+            
+            let sound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
+            runAction(sound)
+            
+            gameOver.alpha = 1
+            gameState = .Dead
+            backgroundMusic.runAction(SKAction.stop())
+            
+            player.removeFromParent()
+            speed = 0
+        }
+    }
+
 
 }
