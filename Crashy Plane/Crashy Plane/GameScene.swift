@@ -44,9 +44,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.physicsBody = SKPhysicsBody(texture: playerTexture, size: playerTexture.size())
         player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
-        player.physicsBody?.dynamic = false
+        player.physicsBody?.dynamic = true
         
-        player.physicsBody?.collisionBitMask = 0
+        //player.physicsBody?.collisionBitMask = 0
         
         let frame2 = SKTexture(imageNamed: "player-2")
         let frame3 = SKTexture(imageNamed: "player-3")
