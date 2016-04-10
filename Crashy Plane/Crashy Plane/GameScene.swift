@@ -9,7 +9,7 @@
 import GameplayKit
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player: SKSpriteNode!
     
@@ -19,6 +19,10 @@ class GameScene: SKScene {
         createSky()
         createBackground()
         createGround()
+        //initRocks()
+        
+        physicsWorld.gravity = CGVectorMake(0.0, -5.0)
+        physicsWorld.contactDelegate = self
         
     }
     
@@ -164,6 +168,16 @@ class GameScene: SKScene {
         topRock.runAction(moveSequence)
         bottomRock.runAction(moveSequence)
         rockCollision.runAction(moveSequence)
+    }
+    
+    func initRocks() {
+        let create = SKAction.runBlock({ ()-> Void in self.createRocks()}, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0))
+        
+        let wait = SKAction.waitForDuration(3)
+        let sequence = SKAction.sequence([create, wait])
+        let repeatForever = SKAction.repeatActionForever(sequence)
+        
+        runAction(repeatForever)
     }
 
 }
