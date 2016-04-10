@@ -14,6 +14,12 @@
 		A294CBDE1CB9CBD4008A3153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A294CBDC1CB9CBD4008A3153 /* Main.storyboard */; };
 		A294CBE01CB9CBD4008A3153 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A294CBDF1CB9CBD4008A3153 /* Assets.xcassets */; };
 		A294CBE31CB9CBD4008A3153 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A294CBE11CB9CBD4008A3153 /* LaunchScreen.storyboard */; };
+		A294CBF41CBA77A4008A3153 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = A294CBEE1CBA77A4008A3153 /* coin.wav */; };
+		A294CBF51CBA77A4008A3153 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = A294CBEF1CBA77A4008A3153 /* explosion.wav */; };
+		A294CBF61CBA77A4008A3153 /* music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A294CBF01CBA77A4008A3153 /* music.m4a */; };
+		A294CBF71CBA77A4008A3153 /* PlayerExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = A294CBF11CBA77A4008A3153 /* PlayerExplosion.sks */; };
+		A294CBF81CBA77A4008A3153 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A294CBF21CBA77A4008A3153 /* README.txt */; };
+		A294CBF91CBA77A4008A3153 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A294CBF31CBA77A4008A3153 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		A294CBDF1CB9CBD4008A3153 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A294CBE21CB9CBD4008A3153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A294CBE41CB9CBD4008A3153 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A294CBEE1CBA77A4008A3153 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
+		A294CBEF1CBA77A4008A3153 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		A294CBF01CBA77A4008A3153 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.m4a; sourceTree = "<group>"; };
+		A294CBF11CBA77A4008A3153 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerExplosion.sks; sourceTree = "<group>"; };
+		A294CBF21CBA77A4008A3153 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		A294CBF31CBA77A4008A3153 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +70,7 @@
 		A294CBD31CB9CBD4008A3153 /* Crashy Plane */ = {
 			isa = PBXGroup;
 			children = (
-				A294CBEC1CB9CEAA008A3153 /* Content */,
+				A294CBED1CBA77A4008A3153 /* Content */,
 				A294CBD41CB9CBD4008A3153 /* AppDelegate.swift */,
 				A294CBD61CB9CBD4008A3153 /* GameScene.sks */,
 				A294CBD81CB9CBD4008A3153 /* GameScene.swift */,
@@ -71,11 +83,17 @@
 			path = "Crashy Plane";
 			sourceTree = "<group>";
 		};
-		A294CBEC1CB9CEAA008A3153 /* Content */ = {
+		A294CBED1CBA77A4008A3153 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				A294CBEE1CBA77A4008A3153 /* coin.wav */,
+				A294CBEF1CBA77A4008A3153 /* explosion.wav */,
+				A294CBF01CBA77A4008A3153 /* music.m4a */,
+				A294CBF11CBA77A4008A3153 /* PlayerExplosion.sks */,
+				A294CBF21CBA77A4008A3153 /* README.txt */,
+				A294CBF31CBA77A4008A3153 /* spark.png */,
 			);
-			name = Content;
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +155,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A294CBF71CBA77A4008A3153 /* PlayerExplosion.sks in Resources */,
+				A294CBF81CBA77A4008A3153 /* README.txt in Resources */,
+				A294CBF51CBA77A4008A3153 /* explosion.wav in Resources */,
+				A294CBF61CBA77A4008A3153 /* music.m4a in Resources */,
+				A294CBF41CBA77A4008A3153 /* coin.wav in Resources */,
+				A294CBF91CBA77A4008A3153 /* spark.png in Resources */,
 				A294CBD71CB9CBD4008A3153 /* GameScene.sks in Resources */,
 				A294CBE31CB9CBD4008A3153 /* LaunchScreen.storyboard in Resources */,
 				A294CBE01CB9CBD4008A3153 /* Assets.xcassets in Resources */,

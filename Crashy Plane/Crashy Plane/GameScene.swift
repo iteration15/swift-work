@@ -16,7 +16,6 @@ enum GameState {
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
     var player: SKSpriteNode!
     var scoreLabel: SKLabelNode!
     var backgroundMusic: SKAudioNode!
@@ -33,20 +32,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMoveToView(view: SKView) {
-        
         createPlayer()
         createSky()
         createBackground()
         createGround()
         createScore()
         createLogos()
-        initRocks()
         
         physicsWorld.gravity = CGVectorMake(0.0, -5.0)
         physicsWorld.contactDelegate = self
         
-        backgroundMusic = SKAudioNode(fileNamed: "music.m4a")
-        addChild(backgroundMusic)
+        if let musicURL = NSBundle.mainBundle().URLForResource("music", withExtension: "m4a") {
+            runAction(SKAction.waitForDuration(1),completion: {
+            self.backgroundMusic = SKAudioNode(URL: musicURL)
+            self.addChild(self.backgroundMusic)
+            })
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -76,12 +77,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.view?.presentScene(scene, transition: transition)
         }
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         guard player != nil else { return }
         
         let value = player.physicsBody!.velocity.dy * 0.001
-        let rotate = SKAction.rotateByAngle(value, duration: 0.1)
+        let rotate = SKAction.rotateToAngle(value, duration: 0.1)
+        
         player.runAction(rotate)
     }
     
@@ -95,7 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.physicsBody = SKPhysicsBody(texture: playerTexture, size: playerTexture.size())
         player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
-        player.physicsBody?.dynamic = true
+        player.physicsBody?.dynamic = false
         
         player.physicsBody?.collisionBitMask = 0
         
@@ -222,7 +224,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initRocks() {
-        let create = SKAction.runBlock({ ()-> Void in self.createRocks()}, queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0))
+        let create = SKAction.runBlock { [unowned self] in
+            self.createRocks()
+        }
         
         let wait = SKAction.waitForDuration(3)
         let sequence = SKAction.sequence([create, wait])
@@ -287,6 +291,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             speed = 0
         }
     }
-
-
 }
