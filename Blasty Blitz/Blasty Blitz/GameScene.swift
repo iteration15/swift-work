@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Layered Nodes
     var backgroundNode: SKNode!
@@ -34,6 +34,8 @@ class GameScene: SKScene {
         scaleFactor = self.size.width / 320.0
         
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -2.0)
+        // Set contact delegate
+        physicsWorld.contactDelegate = self
         
         // Create the game nodes
         // Background
@@ -51,6 +53,10 @@ class GameScene: SKScene {
         // Add the player
         player = createPlayer()
         foregroundNode.addChild(player)
+        
+        // Add a star
+        let star = createStarAtPosition(CGPoint(x: 160, y: 220))
+        foregroundNode.addChild(star)
         
         // Tap to Start
         tapToStartNode.position = CGPoint(x: self.size.width / 2, y: 180.0)
@@ -77,6 +83,15 @@ class GameScene: SKScene {
         playerNode.physicsBody?.angularDamping = 0.0
         playerNode.physicsBody?.linearDamping = 0.0
         
+        // 1
+        playerNode.physicsBody?.usesPreciseCollisionDetection = true
+        // 2
+        playerNode.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Player
+        // 3
+        playerNode.physicsBody?.collisionBitMask = 0
+        // 4
+        playerNode.physicsBody?.contactTestBitMask = CollisionCategoryBitmask.Star | CollisionCategoryBitmask.Platform
+        
         return playerNode
     }
     
@@ -102,6 +117,47 @@ class GameScene: SKScene {
         // 6
         // Return the completed background node
         return backgroundNode
+    }
+    
+    func createStarAtPosition(position: CGPoint) -> StarNode {
+        // 1
+        let node = StarNode()
+        let thePosition = CGPoint(x: position.x * scaleFactor, y: position.y)
+        node.position = thePosition
+        node.name = "NODE_STAR"
+        
+        // 2
+        var sprite: SKSpriteNode
+        sprite = SKSpriteNode(imageNamed: "Star")
+        node.addChild(sprite)
+        
+        // 3
+        node.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
+        
+        // 4
+        node.physicsBody?.dynamic = false
+        
+        node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Star
+        node.physicsBody?.collisionBitMask = 0
+        
+        return node
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        // 1
+        var updateHUD = false
+        
+        // 2
+        let whichNode = (contact.bodyA.node != player) ? contact.bodyA.node : contact.bodyB.node
+        let other = whichNode as! GameObjectNode
+        
+        // 3
+        updateHUD = other.collisionWithPlayer(player)
+        
+        // Update the HUD if necessary
+        if updateHUD {
+            // 4 TODO: Update HUD in Part 2
+        }
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

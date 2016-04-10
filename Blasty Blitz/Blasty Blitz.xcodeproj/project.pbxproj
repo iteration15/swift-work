@@ -57,6 +57,7 @@
 		A2E63B6F1CBAE663005FED19 /* Background20.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B441CBAE663005FED19 /* Background20.png */; };
 		A2E63B701CBAE663005FED19 /* Background20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B451CBAE663005FED19 /* Background20@2x.png */; };
 		A2E63B711CBAE663005FED19 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B461CBAE663005FED19 /* Background@2x.png */; };
+		A2E63B731CBAF8CF005FED19 /* GameObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63B721CBAF8CF005FED19 /* GameObjectNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		A2E63B441CBAE663005FED19 /* Background20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background20.png; sourceTree = "<group>"; };
 		A2E63B451CBAE663005FED19 /* Background20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background20@2x.png"; sourceTree = "<group>"; };
 		A2E63B461CBAE663005FED19 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		A2E63B721CBAF8CF005FED19 /* GameObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				A2E63B031CBAE4B0005FED19 /* AppDelegate.swift */,
 				A2E63B051CBAE4B0005FED19 /* GameScene.sks */,
 				A2E63B071CBAE4B0005FED19 /* GameScene.swift */,
+				A2E63B721CBAF8CF005FED19 /* GameObjectNode.swift */,
 				A2E63B091CBAE4B0005FED19 /* GameViewController.swift */,
 				A2E63B0B1CBAE4B0005FED19 /* Main.storyboard */,
 				A2E63B0E1CBAE4B0005FED19 /* Assets.xcassets */,
@@ -341,6 +344,7 @@
 			files = (
 				A2E63B081CBAE4B0005FED19 /* GameScene.swift in Sources */,
 				A2E63B0A1CBAE4B0005FED19 /* GameViewController.swift in Sources */,
+				A2E63B731CBAF8CF005FED19 /* GameObjectNode.swift in Sources */,
 				A2E63B041CBAE4B0005FED19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
