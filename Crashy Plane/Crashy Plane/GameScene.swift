@@ -27,7 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var score = 0 {
         didSet {
-            scoreLabel.text = "SCORE: \(score)"
+            scoreLabel.text = "Score: \(score)"
         }
     }
     
@@ -42,6 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = CGVectorMake(0.0, -5.0)
         physicsWorld.contactDelegate = self
         
+        // add snow particles
         let path = NSBundle.mainBundle().pathForResource("Snow", ofType: "sks")
         let snowParticle = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as! SKEmitterNode
         snowParticle.position = CGPointMake(self.size.width/2, self.size.height)
