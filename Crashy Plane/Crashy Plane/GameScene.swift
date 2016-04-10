@@ -15,6 +15,8 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         
         createPlayer()
+        createSky()
+        createBackground()
         
     }
     
@@ -46,5 +48,42 @@ class GameScene: SKScene {
         let runForever = SKAction.repeatActionForever(animation)
         
         player.runAction(runForever)
+    }
+    
+    func createSky() {
+        let topSky = SKSpriteNode(color: UIColor(hue: 0.55, saturation: 0.14, brightness: 0.97, alpha: 1), size: CGSize(width: frame.width, height: frame.height * 0.67))
+        topSky.anchorPoint = CGPoint(x: 0.5, y: 1)
+        
+        let bottomSky = SKSpriteNode(color: UIColor(hue: 0.55, saturation: 0.16, brightness: 0.96, alpha: 1), size: CGSize(width: frame.width, height: frame.height * 0.33))
+        topSky.anchorPoint = CGPoint(x: 0.5, y: 1)
+        
+        topSky.position = CGPoint(x: CGRectGetMidX(frame), y: frame.size.height)
+        bottomSky.position = CGPoint(x: CGRectGetMidX(frame), y: bottomSky.frame.height / 2)
+        
+        addChild(topSky)
+        addChild(bottomSky)
+        
+        bottomSky.zPosition = -40
+        topSky.zPosition = -40
+    }
+    
+    func createBackground() {
+        let backgroundTexture = SKTexture(imageNamed: "background")
+        
+        for i in 0 ... 1 {
+            let background = SKSpriteNode(texture: backgroundTexture)
+            background.zPosition = -30
+            background.anchorPoint = CGPointZero
+            background.position = CGPoint(x: (backgroundTexture.size().width * CGFloat(i)) - CGFloat(1 * i), y: 100)
+            
+            let moveLeft = SKAction.moveByX(-backgroundTexture.size().width, y: 0, duration: 20)
+            let moveReset = SKAction.moveByX(backgroundTexture.size().width, y: 0, duration: 0)
+            let moveLoop = SKAction.sequence([moveLeft, moveReset])
+            let moveForever = SKAction.repeatActionForever(moveLoop)
+            
+            background.runAction(moveForever)
+            
+            addChild(background)
+        }
     }
 }
