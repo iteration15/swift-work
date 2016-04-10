@@ -30,6 +30,8 @@ class GameScene: SKScene {
         
         scaleFactor = self.size.width / 320.0
         
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: -2.0)
+        
         // Create the game nodes
         // Background
         backgroundNode = createBackgroundNode()
@@ -50,6 +52,18 @@ class GameScene: SKScene {
         
         let sprite = SKSpriteNode(imageNamed: "Player")
         playerNode.addChild(sprite)
+        
+        // 1
+        playerNode.physicsBody = SKPhysicsBody(circleOfRadius: sprite.size.width / 2)
+        // 2
+        playerNode.physicsBody?.dynamic = true
+        // 3
+        playerNode.physicsBody?.allowsRotation = false
+        // 4
+        playerNode.physicsBody?.restitution = 1.0
+        playerNode.physicsBody?.friction = 0.0
+        playerNode.physicsBody?.angularDamping = 0.0
+        playerNode.physicsBody?.linearDamping = 0.0
         
         return playerNode
     }
