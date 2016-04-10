@@ -27,11 +27,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        player.physicsBody?.velocity = CGVectorMake(0, 0)
+        player.physicsBody?.applyImpulse(CGVectorMake(0, 20))
        
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        let value = player.physicsBody!.velocity.dy * 0.001
+        let rotate = SKAction.rotateByAngle(value, duration: 0.1)
+        player.runAction(rotate)
     }
     
     func createPlayer() {
@@ -46,7 +50,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
         player.physicsBody?.dynamic = true
         
-        //player.physicsBody?.collisionBitMask = 0
+        player.physicsBody?.collisionBitMask = 0
         
         let frame2 = SKTexture(imageNamed: "player-2")
         let frame3 = SKTexture(imageNamed: "player-3")
