@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Blasty Ship
+//  Blasty Blitz
 //
 //  Created by Kuhta, Dean on 4/10/16.
 //  Copyright © 2016 Dean Kuhta. All rights reserved.

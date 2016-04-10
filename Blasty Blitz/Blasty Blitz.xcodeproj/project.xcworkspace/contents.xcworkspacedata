@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Blasty Ship.xcodeproj">
+      location = "self:Blasty Blitz.xcodeproj">
    </FileRef>
 </Workspace>
