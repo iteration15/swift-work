@@ -8,6 +8,11 @@
 
 import SpriteKit
 
+enum StarType: Int {
+    case Normal = 0
+    case Special
+}
+
 struct CollisionCategoryBitmask {
     static let Player: UInt32 = 0x00
     static let Star: UInt32 = 0x01
@@ -27,6 +32,8 @@ class GameObjectNode: SKNode {
 }
 
 class StarNode: GameObjectNode {
+    var starType: StarType!
+    
     override func collisionWithPlayer(player: SKNode) -> Bool {
         // Boost the player up
         player.physicsBody?.velocity = CGVector(dx: player.physicsBody!.velocity.dx, dy: 400.0)

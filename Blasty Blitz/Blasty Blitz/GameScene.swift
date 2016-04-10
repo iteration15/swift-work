@@ -55,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         foregroundNode.addChild(player)
         
         // Add a star
-        let star = createStarAtPosition(CGPoint(x: 160, y: 220))
+        let star = createStarAtPosition(CGPoint(x: 160, y: 220), ofType: .Special)
         foregroundNode.addChild(star)
         
         // Tap to Start
@@ -119,7 +119,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return backgroundNode
     }
     
-    func createStarAtPosition(position: CGPoint) -> StarNode {
+    func createStarAtPosition(position: CGPoint, ofType type: StarType) -> StarNode {
         // 1
         let node = StarNode()
         let thePosition = CGPoint(x: position.x * scaleFactor, y: position.y)
@@ -127,8 +127,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.name = "NODE_STAR"
         
         // 2
+        node.starType = type
         var sprite: SKSpriteNode
-        sprite = SKSpriteNode(imageNamed: "Star")
+        if type == .Special {
+            sprite = SKSpriteNode(imageNamed: "StarSpecial")
+        } else {
+            sprite = SKSpriteNode(imageNamed: "Star")
+        }
         node.addChild(sprite)
         
         // 3
