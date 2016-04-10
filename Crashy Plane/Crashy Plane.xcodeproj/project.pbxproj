@@ -20,6 +20,7 @@
 		A294CBF71CBA77A4008A3153 /* PlayerExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = A294CBF11CBA77A4008A3153 /* PlayerExplosion.sks */; };
 		A294CBF81CBA77A4008A3153 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = A294CBF21CBA77A4008A3153 /* README.txt */; };
 		A294CBF91CBA77A4008A3153 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A294CBF31CBA77A4008A3153 /* spark.png */; };
+		A2E5B04B1CBA8822006B1151 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = A2E5B04A1CBA8822006B1151 /* Snow.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		A294CBF11CBA77A4008A3153 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerExplosion.sks; sourceTree = "<group>"; };
 		A294CBF21CBA77A4008A3153 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		A294CBF31CBA77A4008A3153 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		A2E5B04A1CBA8822006B1151 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Snow.sks; path = Content/Snow.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				A294CBD41CB9CBD4008A3153 /* AppDelegate.swift */,
 				A294CBD61CB9CBD4008A3153 /* GameScene.sks */,
 				A294CBD81CB9CBD4008A3153 /* GameScene.swift */,
+				A2E5B04A1CBA8822006B1151 /* Snow.sks */,
 				A294CBDA1CB9CBD4008A3153 /* GameViewController.swift */,
 				A294CBDC1CB9CBD4008A3153 /* Main.storyboard */,
 				A294CBDF1CB9CBD4008A3153 /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 			files = (
 				A294CBF71CBA77A4008A3153 /* PlayerExplosion.sks in Resources */,
 				A294CBF81CBA77A4008A3153 /* README.txt in Resources */,
+				A2E5B04B1CBA8822006B1151 /* Snow.sks in Resources */,
 				A294CBF51CBA77A4008A3153 /* explosion.wav in Resources */,
 				A294CBF61CBA77A4008A3153 /* music.m4a in Resources */,
 				A294CBF41CBA77A4008A3153 /* coin.wav in Resources */,
@@ -333,6 +337,7 @@
 				A294CBE91CB9CBD4008A3153 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

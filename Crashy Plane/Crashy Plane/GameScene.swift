@@ -42,6 +42,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = CGVectorMake(0.0, -5.0)
         physicsWorld.contactDelegate = self
         
+        let path = NSBundle.mainBundle().pathForResource("Snow", ofType: "sks")
+        let snowParticle = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as! SKEmitterNode
+        snowParticle.position = CGPointMake(self.size.width/2, self.size.height)
+        snowParticle.name = "snowParticle"
+        snowParticle.targetNode = self.scene
+        self.addChild(snowParticle)
+        
         if let musicURL = NSBundle.mainBundle().URLForResource("music", withExtension: "m4a") {
             runAction(SKAction.waitForDuration(1),completion: {
             self.backgroundMusic = SKAudioNode(URL: musicURL)
