@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Dean Kuhta. All rights reserved.
 //
 
+import GameplayKit
 import SpriteKit
 
 class GameScene: SKScene {
@@ -17,6 +18,7 @@ class GameScene: SKScene {
         createPlayer()
         createSky()
         createBackground()
+        createGround()
         
     }
     
@@ -108,4 +110,60 @@ class GameScene: SKScene {
             ground.runAction(moveForever)
         }
     }
+    
+    func createRocks() {
+        // 1
+        let rockTexture = SKTexture(imageNamed: "rock")
+        
+        let topRock = SKSpriteNode(texture: rockTexture)
+        topRock.physicsBody = SKPhysicsBody(texture: rockTexture, size: rockTexture.size())
+        topRock.physicsBody?.dynamic = false
+        
+        topRock.zRotation = CGFloat(M_PI)
+        topRock.xScale = -1.0
+        
+        let bottomRock = SKSpriteNode(texture: rockTexture)
+        bottomRock.physicsBody = SKPhysicsBody(texture: rockTexture, size: rockTexture.size())
+        bottomRock.physicsBody?.dynamic = false
+        
+        topRock.zPosition = -20
+        bottomRock.zPosition = -20
+        
+        
+        // 2
+        let rockCollision = SKSpriteNode(color: UIColor.clearColor(), size: CGSize(width: 32, height: frame.height))
+        rockCollision.physicsBody = SKPhysicsBody(rectangleOfSize: rockCollision.size)
+        rockCollision.physicsBody?.dynamic = false
+        rockCollision.name = "scoreDetect"
+        
+        addChild(topRock)
+        addChild(bottomRock)
+        addChild(rockCollision)
+        
+        
+        // 3
+        let xPosition = frame.width + topRock.frame.width
+        
+        let max = Int(frame.height / 3)
+        let rand = GKRandomDistribution(lowestValue: -100, highestValue: max)
+        let yPosition = CGFloat(rand.nextInt())
+        
+        // this next value affects the width of the gap between rocks
+        // make it smaller to make your game harder – if you're feeling evil!
+        let rockDistance: CGFloat = 70
+        
+        // 4
+        topRock.position = CGPoint(x: xPosition, y: yPosition + topRock.size.height + rockDistance)
+        bottomRock.position = CGPoint(x: xPosition, y: yPosition - rockDistance)
+        rockCollision.position = CGPoint(x: xPosition + (rockCollision.size.width * 2), y: CGRectGetMidY(frame))
+        
+        let endPosition = frame.width + (topRock.frame.width * 2)
+        
+        let moveAction = SKAction.moveByX(-endPosition, y: 0, duration: 5.8)
+        let moveSequence = SKAction.sequence([moveAction, SKAction.removeFromParent()])
+        topRock.runAction(moveSequence)
+        bottomRock.runAction(moveSequence)
+        rockCollision.runAction(moveSequence)
+    }
+
 }
