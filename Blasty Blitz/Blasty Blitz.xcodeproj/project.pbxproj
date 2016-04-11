@@ -60,6 +60,8 @@
 		A2E63B731CBAF8CF005FED19 /* GameObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63B721CBAF8CF005FED19 /* GameObjectNode.swift */; };
 		A2E63B751CBB9AA3005FED19 /* Level01.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B741CBB9AA3005FED19 /* Level01.plist */; };
 		A2E63B771CBBAB96005FED19 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63B761CBBAB96005FED19 /* GameState.swift */; };
+		A2E63B791CBBB143005FED19 /* StarPing.wav in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B781CBBB143005FED19 /* StarPing.wav */; };
+		A2E63B7B1CBBB343005FED19 /* EndGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63B7A1CBBB343005FED19 /* EndGameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +120,8 @@
 		A2E63B721CBAF8CF005FED19 /* GameObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectNode.swift; sourceTree = "<group>"; };
 		A2E63B741CBB9AA3005FED19 /* Level01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level01.plist; sourceTree = "<group>"; };
 		A2E63B761CBBAB96005FED19 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		A2E63B781CBBB143005FED19 /* StarPing.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = StarPing.wav; sourceTree = "<group>"; };
+		A2E63B7A1CBBB343005FED19 /* EndGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndGameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,9 +158,11 @@
 				A2E63B031CBAE4B0005FED19 /* AppDelegate.swift */,
 				A2E63B741CBB9AA3005FED19 /* Level01.plist */,
 				A2E63B051CBAE4B0005FED19 /* GameScene.sks */,
+				A2E63B781CBBB143005FED19 /* StarPing.wav */,
 				A2E63B071CBAE4B0005FED19 /* GameScene.swift */,
 				A2E63B761CBBAB96005FED19 /* GameState.swift */,
 				A2E63B721CBAF8CF005FED19 /* GameObjectNode.swift */,
+				A2E63B7A1CBBB343005FED19 /* EndGameScene.swift */,
 				A2E63B091CBAE4B0005FED19 /* GameViewController.swift */,
 				A2E63B0B1CBAE4B0005FED19 /* Main.storyboard */,
 				A2E63B0E1CBAE4B0005FED19 /* Assets.xcassets */,
@@ -306,6 +312,7 @@
 				A2E63B4E1CBAE663005FED19 /* Background03@2x.png in Resources */,
 				A2E63B521CBAE663005FED19 /* Background05@2x.png in Resources */,
 				A2E63B061CBAE4B0005FED19 /* GameScene.sks in Resources */,
+				A2E63B791CBBB143005FED19 /* StarPing.wav in Resources */,
 				A2E63B121CBAE4B0005FED19 /* LaunchScreen.storyboard in Resources */,
 				A2E63B581CBAE663005FED19 /* Background08@2x.png in Resources */,
 				A2E63B501CBAE663005FED19 /* Background04@2x.png in Resources */,
@@ -353,6 +360,7 @@
 				A2E63B0A1CBAE4B0005FED19 /* GameViewController.swift in Sources */,
 				A2E63B771CBBAB96005FED19 /* GameState.swift in Sources */,
 				A2E63B731CBAF8CF005FED19 /* GameObjectNode.swift in Sources */,
+				A2E63B7B1CBBB343005FED19 /* EndGameScene.swift in Sources */,
 				A2E63B041CBAE4B0005FED19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,8 @@
 
 import SpriteKit
 
+let starSound = SKAction.playSoundFileNamed("StarPing.wav", waitForCompletion: false)
+
 enum StarType: Int {
     case Normal = 0
     case Special
@@ -43,8 +45,14 @@ class StarNode: GameObjectNode {
         // Boost the player up
         player.physicsBody?.velocity = CGVector(dx: player.physicsBody!.velocity.dx, dy: 400.0)
         
-        // Remove this Star
-        self.removeFromParent()
+        // Play sound
+        runAction(starSound, completion: {
+            // Remove this Star
+            self.removeFromParent()
+        })
+        
+        // Award score
+        GameState.sharedInstance.score += (starType == .Normal ? 20 : 100)
         
         // The HUD needs updating to show the new stars and score
         return true

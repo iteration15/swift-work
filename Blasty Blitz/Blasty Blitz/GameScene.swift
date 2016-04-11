@@ -36,6 +36,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Acceleration value from accelerometer
     var xAcceleration: CGFloat = 0.0
+    
+    // Game over dude!
+    var gameOver = false
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -128,6 +131,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Tap to Start
         tapToStartNode.position = CGPoint(x: self.size.width / 2, y: 180.0)
         hudNode.addChild(tapToStartNode)
+        
+        // Build the HUD
+        
+        // Stars
+        // 1
+        let star = SKSpriteNode(imageNamed: "Star")
+        star.position = CGPoint(x: 25, y: self.size.height-30)
+        hudNode.addChild(star)
+        
+        // 2
+        lblStars = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        lblStars.fontSize = 30
+        lblStars.fontColor = SKColor.whiteColor()
+        lblStars.position = CGPoint(x: 50, y: self.size.height-40)
+        lblStars.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+        
+        // 3
+        lblStars.text = String(format: "X %d", GameState.sharedInstance.stars)
+        hudNode.addChild(lblStars)
+        
+        // Score
+        // 4
+        lblScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+        lblScore.fontSize = 30
+        lblScore.fontColor = SKColor.whiteColor()
+        lblScore.position = CGPoint(x: self.size.width-20, y: self.size.height-40)
+        lblScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
+        
+        // 5
+        lblScore.text = "0"
+        hudNode.addChild(lblScore)
+        
+        GameState.sharedInstance.score = 0
+        gameOver = false
         
         // CoreMotion
         motionManager.accelerometerUpdateInterval = 0.2
@@ -300,11 +337,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(currentTime: NSTimeInterval) {
+        
+        if gameOver {
+            return
+        }
+        
         // Calculate player y offset
         if player.position.y > 200.0 {
             backgroundNode.position = CGPoint(x: 0.0, y: -((player.position.y - 200.0)/10))
             midgroundNode.position = CGPoint(x: 0.0, y: -((player.position.y - 200.0)/4))
             foregroundNode.position = CGPoint(x: 0.0, y: -(player.position.y - 200.0))
+        }
+        
+        // 1
+        // Check if we've finished the level
+        if Int(player.position.y) > endLevelY {
+            endGame()
+        }
+        
+        // 2
+        // Check if we've fallen too far
+        if Int(player.position.y) < endLevelY - 800 {
+            //endGame()
         }
     }
     
@@ -321,7 +375,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Update the HUD if necessary
         if updateHUD {
-            // 4 TODO: Update HUD in Part 2
+            lblStars.text = String(format: "X %d", GameState.sharedInstance.stars)
+            lblScore.text = String(format: "%d", GameState.sharedInstance.score)
         }
     }
 
@@ -344,4 +399,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.applyImpulse(CGVector(dx: 0.0, dy: 20.0))
     }
 
+    func endGame() {
+        // 1
+        gameOver = true
+        
+        // 2
+        // Save stars and high score
+        GameState.sharedInstance.saveState()
+        
+        // 3
+        let reveal = SKTransition.fadeWithDuration(0.5)
+        let endGameScene = EndGameScene(size: self.size)
+        self.view!.presentScene(endGameScene, transition: reveal)
+    }
 }
