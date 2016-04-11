@@ -87,13 +87,64 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Height at which the player ends the level
         endLevelY = levelData["EndY"]!.integerValue!
         
-        // Add a star
-        let star = createStarAtPosition(CGPoint(x: 160, y: 220), ofType: .Special)
-        foregroundNode.addChild(star)
+        // Add the stars
+        let stars = levelData["Stars"] as! NSDictionary
+        let starPatterns = stars["Patterns"] as! NSDictionary
+        let starPositions = stars["Positions"] as! [NSDictionary]
+        
+        for starPosition in starPositions {
+            let patternX = starPosition["x"]?.floatValue
+            let patternY = starPosition["y"]?.floatValue
+            let pattern = starPosition["pattern"] as! NSString
+            
+            // Look up the pattern
+            let starPattern = starPatterns[pattern] as! [NSDictionary]
+            for starPoint in starPattern {
+                let x = starPoint["x"]?.floatValue
+                let y = starPoint["y"]?.floatValue
+                let type = StarType(rawValue: starPoint["type"]!.integerValue)
+                let positionX = CGFloat(x! + patternX!)
+                let positionY = CGFloat(y! + patternY!)
+                let starNode = createStarAtPosition(CGPoint(x: positionX, y: positionY), ofType: type!)
+                foregroundNode.addChild(starNode)
+            }
+        }
         
         // Tap to Start
         tapToStartNode.position = CGPoint(x: self.size.width / 2, y: 180.0)
         hudNode.addChild(tapToStartNode)
+    }
+    
+    func createMidgroundNode() -> SKNode {
+        // Create the node
+        let theMidgroundNode = SKNode()
+        var anchor: CGPoint!
+        var xPosition: CGFloat!
+        
+        // 1
+        // Add some branches to the midground
+        for index in 0...9 {
+            var spriteName: String
+            // 2
+            let r = arc4random() % 2
+            if r > 0 {
+                spriteName = "BranchRight"
+                anchor = CGPoint(x: 1.0, y: 0.5)
+                xPosition = self.size.width
+            } else {
+                spriteName = "BranchLeft"
+                anchor = CGPoint(x: 0.0, y: 0.5)
+                xPosition = 0.0
+            }
+            // 3
+            let branchNode = SKSpriteNode(imageNamed: spriteName)
+            branchNode.anchorPoint = anchor
+            branchNode.position = CGPoint(x: xPosition, y: 500.0 * CGFloat(index))
+            theMidgroundNode.addChild(branchNode)
+        }
+        
+        // Return the completed midground node
+        return theMidgroundNode
     }
     
     
