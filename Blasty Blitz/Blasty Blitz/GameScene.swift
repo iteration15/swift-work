@@ -45,6 +45,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         backgroundNode = createBackgroundNode()
         addChild(backgroundNode)
         
+        // Midground
+        midgroundNode = createMidgroundNode()
+        addChild(midgroundNode)
+        
         // Foreground
         foregroundNode = SKNode()
         addChild(foregroundNode)
