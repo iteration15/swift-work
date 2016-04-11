@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Dean Kuhta. All rights reserved.
 //
 
+import CoreMotion
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -25,6 +26,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Tap To Start node
     let tapToStartNode = SKSpriteNode(imageNamed: "TapToStart")
+    
+    // Motion manager for accelerometer
+    let motionManager = CMMotionManager()
+    
+    // Acceleration value from accelerometer
+    var xAcceleration: CGFloat = 0.0
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -117,6 +124,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Tap to Start
         tapToStartNode.position = CGPoint(x: self.size.width / 2, y: 180.0)
         hudNode.addChild(tapToStartNode)
+        
+        // CoreMotion
+        motionManager.accelerometerUpdateInterval = 0.2
+        motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue()) { data, error in
+            guard data != nil else {
+                return
+            }
+            // 3
+            let acceleration = data?.acceleration
+            
+            // 4
+            self.xAcceleration = (CGFloat(acceleration!.x) * 0.75) + (self.xAcceleration * 0.25)
+        }
+    }
+    
+    override func didSimulatePhysics() {
+        // 1
+        // Set velocity based on x-axis acceleration
+        player.physicsBody?.velocity = CGVector(dx: xAcceleration * 400.0, dy: player.physicsBody!.velocity.dy)
+        // 2
+        // Check x bounds
+        if player.position.x < -20.0 {
+            player.position = CGPoint(x: self.size.width + 20.0, y: player.position.y)
+        } else if (player.position.x > self.size.width + 20.0) {
+            player.position = CGPoint(x: -20.0, y: player.position.y)
+        }
     }
     
     func createMidgroundNode() -> SKNode {
@@ -234,6 +267,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.physicsBody?.collisionBitMask = 0
         
         return node
+    }
+    
+    override func update(currentTime: NSTimeInterval) {
+        // Calculate player y offset
+        if player.position.y > 200.0 {
+            backgroundNode.position = CGPoint(x: 0.0, y: -((player.position.y - 200.0)/10))
+            midgroundNode.position = CGPoint(x: 0.0, y: -((player.position.y - 200.0)/4))
+            foregroundNode.position = CGPoint(x: 0.0, y: -(player.position.y - 200.0))
+        }
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
