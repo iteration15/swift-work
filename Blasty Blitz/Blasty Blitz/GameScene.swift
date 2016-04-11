@@ -18,6 +18,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var hudNode: SKNode!
     var player: SKNode!
     
+    // Labels for score and stars
+    var lblScore: SKLabelNode!
+    var lblStars: SKLabelNode!
+    
     // Height at which level ends
     var endLevelY = 0
     
@@ -73,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let levelData = NSDictionary(contentsOfFile: levelPlist!)!
         
         // Add the platforms
-        /*let platforms = levelData["Platforms"] as! NSDictionary
+        let platforms = levelData["Platforms"] as! NSDictionary
         let platformPatterns = platforms["Patterns"] as! NSDictionary
         let platformPositions = platforms["Positions"] as! [NSDictionary]
         
@@ -93,7 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 let platformNode = createPlatformAtPosition(CGPoint(x: positionX, y: positionY), ofType: type!)
                 foregroundNode.addChild(platformNode)
             }
-        }*/
+        }
         
         // Height at which the player ends the level
         endLevelY = levelData["EndY"]!.integerValue!
@@ -264,6 +268,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.physicsBody?.dynamic = false
         
         node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Star
+        node.physicsBody?.collisionBitMask = 0
+        
+        return node
+    }
+    
+    func createPlatformAtPosition(position: CGPoint, ofType type: PlatformType) -> PlatformNode {
+        // 1
+        let node = PlatformNode()
+        let thePosition = CGPoint(x: position.x * scaleFactor, y: position.y)
+        node.position = thePosition
+        node.name = "NODE_PLATFORM"
+        node.platformType = type
+        
+        // 2
+        var sprite: SKSpriteNode
+        if type == .Break {
+            sprite = SKSpriteNode(imageNamed: "PlatformBreak")
+        } else {
+            sprite = SKSpriteNode(imageNamed: "Platform")
+        }
+        node.addChild(sprite)
+        
+        // 3
+        node.physicsBody = SKPhysicsBody(rectangleOfSize: sprite.size)
+        node.physicsBody?.dynamic = false
+        node.physicsBody?.categoryBitMask = CollisionCategoryBitmask.Platform
         node.physicsBody?.collisionBitMask = 0
         
         return node

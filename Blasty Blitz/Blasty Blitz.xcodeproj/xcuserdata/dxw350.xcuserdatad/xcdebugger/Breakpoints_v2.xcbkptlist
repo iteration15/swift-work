@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blasty Blitz/GameState.swift"
+            timestampString = "482061265.52956"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "GameState"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Blasty_Blitz.GameState.__deallocating_deinit"
+                  moduleName = "Blasty Blitz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dxw350/workspace/swiftwork/Project1/Blasty%20Blitz/Blasty%20Blitz/GameState.swift"
+                  timestampString = "482061308.854686"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Blasty_Blitz.GameState.deinit"
+                  moduleName = "Blasty Blitz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dxw350/workspace/swiftwork/Project1/Blasty%20Blitz/Blasty%20Blitz/GameState.swift"
+                  timestampString = "482061308.856458"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Blasty_Blitz.GameState.init () -&gt; Blasty_Blitz.GameState"
+                  moduleName = "Blasty Blitz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dxw350/workspace/swiftwork/Project1/Blasty%20Blitz/Blasty%20Blitz/GameState.swift"
+                  timestampString = "482061308.856654"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

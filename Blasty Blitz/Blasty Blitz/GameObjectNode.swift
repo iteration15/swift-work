@@ -13,6 +13,11 @@ enum StarType: Int {
     case Special
 }
 
+enum PlatformType: Int {
+    case Normal = 0
+    case Break
+}
+
 struct CollisionCategoryBitmask {
     static let Player: UInt32 = 0x00
     static let Star: UInt32 = 0x01
@@ -43,5 +48,28 @@ class StarNode: GameObjectNode {
         
         // The HUD needs updating to show the new stars and score
         return true
+    }
+}
+
+class PlatformNode: GameObjectNode {
+    var platformType: PlatformType!
+    
+    override func collisionWithPlayer(player: SKNode) -> Bool {
+        // 1
+        // Only bounce the player if he's falling
+        if player.physicsBody?.velocity.dy < 0 {
+            // 2
+            player.physicsBody?.velocity = CGVector(dx: player.physicsBody!.velocity.dx, dy: 250.0)
+            
+            // 3
+            // Remove if it is a Break type platform
+            if platformType == .Break {
+                self.removeFromParent()
+            }
+        }
+        
+        // 4
+        // No stars for platforms
+        return false
     }
 }
