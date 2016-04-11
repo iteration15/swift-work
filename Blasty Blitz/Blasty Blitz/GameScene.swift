@@ -17,6 +17,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var hudNode: SKNode!
     var player: SKNode!
     
+    // Height at which level ends
+    var endLevelY = 0
+    
     // To Accommodate iPhone 6
     var scaleFactor: CGFloat!
     
@@ -53,6 +56,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Add the player
         player = createPlayer()
         foregroundNode.addChild(player)
+        
+        // Load the level
+        let levelPlist = NSBundle.mainBundle().pathForResource("Level01", ofType: "plist")
+        let levelData = NSDictionary(contentsOfFile: levelPlist!)!
+        
+        // Add the platforms
+        /*let platforms = levelData["Platforms"] as! NSDictionary
+        let platformPatterns = platforms["Patterns"] as! NSDictionary
+        let platformPositions = platforms["Positions"] as! [NSDictionary]
+        
+        for platformPosition in platformPositions {
+            let patternX = platformPosition["x"]?.floatValue
+            let patternY = platformPosition["y"]?.floatValue
+            let pattern = platformPosition["pattern"] as! NSString
+            
+            // Look up the pattern
+            let platformPattern = platformPatterns[pattern] as! [NSDictionary]
+            for platformPoint in platformPattern {
+                let x = platformPoint["x"]?.floatValue
+                let y = platformPoint["y"]?.floatValue
+                let type = PlatformType(rawValue: platformPoint["type"]!.integerValue)
+                let positionX = CGFloat(x! + patternX!)
+                let positionY = CGFloat(y! + patternY!)
+                let platformNode = createPlatformAtPosition(CGPoint(x: positionX, y: positionY), ofType: type!)
+                foregroundNode.addChild(platformNode)
+            }
+        }*/
+        
+        // Height at which the player ends the level
+        endLevelY = levelData["EndY"]!.integerValue!
         
         // Add a star
         let star = createStarAtPosition(CGPoint(x: 160, y: 220), ofType: .Special)

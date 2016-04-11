@@ -58,6 +58,7 @@
 		A2E63B701CBAE663005FED19 /* Background20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B451CBAE663005FED19 /* Background20@2x.png */; };
 		A2E63B711CBAE663005FED19 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B461CBAE663005FED19 /* Background@2x.png */; };
 		A2E63B731CBAF8CF005FED19 /* GameObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63B721CBAF8CF005FED19 /* GameObjectNode.swift */; };
+		A2E63B751CBB9AA3005FED19 /* Level01.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B741CBB9AA3005FED19 /* Level01.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		A2E63B451CBAE663005FED19 /* Background20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background20@2x.png"; sourceTree = "<group>"; };
 		A2E63B461CBAE663005FED19 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 		A2E63B721CBAF8CF005FED19 /* GameObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectNode.swift; sourceTree = "<group>"; };
+		A2E63B741CBB9AA3005FED19 /* Level01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level01.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			children = (
 				A2E63B191CBAE64C005FED19 /* Content */,
 				A2E63B031CBAE4B0005FED19 /* AppDelegate.swift */,
+				A2E63B741CBB9AA3005FED19 /* Level01.plist */,
 				A2E63B051CBAE4B0005FED19 /* GameScene.sks */,
 				A2E63B071CBAE4B0005FED19 /* GameScene.swift */,
 				A2E63B721CBAF8CF005FED19 /* GameObjectNode.swift */,
@@ -317,6 +320,7 @@
 				A2E63B711CBAE663005FED19 /* Background@2x.png in Resources */,
 				A2E63B651CBAE663005FED19 /* Background15.png in Resources */,
 				A2E63B701CBAE663005FED19 /* Background20@2x.png in Resources */,
+				A2E63B751CBB9AA3005FED19 /* Level01.plist in Resources */,
 				A2E63B5A1CBAE663005FED19 /* Background09@2x.png in Resources */,
 				A2E63B6B1CBAE663005FED19 /* Background18.png in Resources */,
 				A2E63B5B1CBAE663005FED19 /* Background10.png in Resources */,
