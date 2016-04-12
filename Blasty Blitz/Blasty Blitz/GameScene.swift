@@ -53,6 +53,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Reset
         maxPlayerY = 80
+        GameState.sharedInstance.score = 0
+        gameOver = false
         
         scaleFactor = self.size.width / 320.0
         
@@ -387,8 +389,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // 2
         // Check if we've fallen too far
-        if Int(player.position.y) < endLevelY - 800 {
-            //endGame()
+        if Int(player.position.y) < maxPlayerY - 800 {
+            endGame()
         }
     }
     
