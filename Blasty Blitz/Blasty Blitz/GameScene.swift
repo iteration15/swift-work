@@ -359,6 +359,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         
+        // Remove game objects that have passed by
+        foregroundNode.enumerateChildNodesWithName("NODE_PLATFORM", usingBlock: {
+            (node, stop) in
+            let platform = node as! PlatformNode
+            platform.checkNodeRemoval(self.player.position.y)
+        })
+        
+        foregroundNode.enumerateChildNodesWithName("NODE_STAR", usingBlock: {
+            (node, stop) in
+            let star = node as! StarNode
+            star.checkNodeRemoval(self.player.position.y)
+        })
+        
         // Calculate player y offset
         if player.position.y > 200.0 {
             backgroundNode.position = CGPoint(x: 0.0, y: -((player.position.y - 200.0)/10))
