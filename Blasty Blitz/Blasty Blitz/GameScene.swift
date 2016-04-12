@@ -344,6 +344,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(currentTime: NSTimeInterval) {
         
+        // New max height ?
+        // 1
+        if Int(player.position.y) > maxPlayerY! {
+            // 2
+            GameState.sharedInstance.score += Int(player.position.y) - maxPlayerY!
+            // 3
+            maxPlayerY = Int(player.position.y)
+            // 4
+            lblScore.text = String(format: "%d", GameState.sharedInstance.score)
+        }
+        
         if gameOver {
             return
         }
