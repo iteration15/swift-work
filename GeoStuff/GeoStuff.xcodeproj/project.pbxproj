@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A2E63B891CBCF869005FED19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63B881CBCF869005FED19 /* AppDelegate.swift */; };
-		A2E63B8B1CBCF869005FED19 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B8A1CBCF869005FED19 /* art.scnassets */; };
 		A2E63B8D1CBCF869005FED19 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63B8C1CBCF869005FED19 /* GameViewController.swift */; };
 		A2E63B901CBCF869005FED19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B8E1CBCF869005FED19 /* Main.storyboard */; };
 		A2E63B921CBCF869005FED19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B911CBCF869005FED19 /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		A2E63B851CBCF869005FED19 /* GeoStuff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoStuff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E63B881CBCF869005FED19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A2E63B8A1CBCF869005FED19 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		A2E63B8C1CBCF869005FED19 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A2E63B8F1CBCF869005FED19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2E63B911CBCF869005FED19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				A2E63B881CBCF869005FED19 /* AppDelegate.swift */,
-				A2E63B8A1CBCF869005FED19 /* art.scnassets */,
 				A2E63B8C1CBCF869005FED19 /* GameViewController.swift */,
 				A2E63B8E1CBCF869005FED19 /* Main.storyboard */,
 				A2E63B911CBCF869005FED19 /* Assets.xcassets */,
@@ -99,6 +96,7 @@
 				TargetAttributes = {
 					A2E63B841CBCF869005FED19 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = PKH2TKW7W8;
 					};
 				};
 			};
@@ -125,7 +123,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2E63B8B1CBCF869005FED19 /* art.scnassets in Resources */,
 				A2E63B951CBCF869005FED19 /* LaunchScreen.storyboard in Resources */,
 				A2E63B921CBCF869005FED19 /* Assets.xcassets in Resources */,
 				A2E63B901CBCF869005FED19 /* Main.storyboard in Resources */,
@@ -253,10 +250,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GeoStuff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deankuhta.GeoStuff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -264,10 +264,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GeoStuff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deankuhta.GeoStuff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
