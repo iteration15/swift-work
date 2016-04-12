@@ -18,6 +18,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var hudNode: SKNode!
     var player: SKNode!
     
+    // Max y reached by player
+    var maxPlayerY: Int!
+    
     // Labels for score and stars
     var lblScore: SKLabelNode!
     var lblStars: SKLabelNode!
@@ -47,6 +50,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override init(size: CGSize) {
         super.init(size: size)
         backgroundColor = SKColor.whiteColor()
+        
+        // Reset
+        maxPlayerY = 80
         
         scaleFactor = self.size.width / 320.0
         

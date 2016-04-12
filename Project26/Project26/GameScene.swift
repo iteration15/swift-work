@@ -23,6 +23,9 @@ class GameScene: SKScene {
     var motionManager: CMMotionManager!
     var scoreLabel: SKLabelNode!
     
+    // Max y reached by player
+    var maxPlayerY: Int!
+    
     var score: Int = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
