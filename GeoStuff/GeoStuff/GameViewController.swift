@@ -40,7 +40,7 @@ class GameViewController: UIViewController {
         scnView = self.view as! SCNView
         
         // 1
-        scnView.showsStatistics = true
+        scnView.showsStatistics = false
         // 2
         scnView.allowsCameraControl = true
         // 3
