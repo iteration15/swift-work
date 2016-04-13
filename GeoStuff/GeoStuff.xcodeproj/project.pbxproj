@@ -12,6 +12,21 @@
 		A2E63B901CBCF869005FED19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B8E1CBCF869005FED19 /* Main.storyboard */; };
 		A2E63B921CBCF869005FED19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B911CBCF869005FED19 /* Assets.xcassets */; };
 		A2E63B951CBCF869005FED19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B931CBCF869005FED19 /* LaunchScreen.storyboard */; };
+		A2E63BAD1CBDC862005FED19 /* AppIcon.afdesign in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B9E1CBDC861005FED19 /* AppIcon.afdesign */; };
+		A2E63BAE1CBDC862005FED19 /* AppIcon_60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B9F1CBDC862005FED19 /* AppIcon_60@2x.png */; };
+		A2E63BAF1CBDC862005FED19 /* AppIcon_60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BA01CBDC862005FED19 /* AppIcon_60@3x.png */; };
+		A2E63BB01CBDC862005FED19 /* AppIcon_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BA11CBDC862005FED19 /* AppIcon_76.png */; };
+		A2E63BB11CBDC862005FED19 /* AppIcon_76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BA21CBDC862005FED19 /* AppIcon_76@2x.png */; };
+		A2E63BB21CBDC862005FED19 /* AppIcon_83_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BA31CBDC862005FED19 /* AppIcon_83_5@2x.png */; };
+		A2E63BB31CBDC862005FED19 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BA51CBDC862005FED19 /* Double+Extensions.swift */; };
+		A2E63BB41CBDC862005FED19 /* Float+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BA61CBDC862005FED19 /* Float+Extensions.swift */; };
+		A2E63BB51CBDC862005FED19 /* GameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BA71CBDC862005FED19 /* GameHelper.swift */; };
+		A2E63BB61CBDC862005FED19 /* Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BA81CBDC862005FED19 /* Generics.swift */; };
+		A2E63BB71CBDC862005FED19 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BA91CBDC862005FED19 /* Int+Extensions.swift */; };
+		A2E63BB81CBDC862005FED19 /* SCNAction+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BAA1CBDC862005FED19 /* SCNAction+Extensions.swift */; };
+		A2E63BB91CBDC862005FED19 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BAB1CBDC862005FED19 /* UIColor+Extensions.swift */; };
+		A2E63BBA1CBDC862005FED19 /* GeometryFighter.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BAC1CBDC862005FED19 /* GeometryFighter.scnassets */; };
+		A2E63BBC1CBDCC72005FED19 /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BBB1CBDCC72005FED19 /* ShapeType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +37,21 @@
 		A2E63B911CBCF869005FED19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2E63B941CBCF869005FED19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2E63B961CBCF869005FED19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2E63B9E1CBDC861005FED19 /* AppIcon.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.afdesign; sourceTree = "<group>"; };
+		A2E63B9F1CBDC862005FED19 /* AppIcon_60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon_60@2x.png"; sourceTree = "<group>"; };
+		A2E63BA01CBDC862005FED19 /* AppIcon_60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon_60@3x.png"; sourceTree = "<group>"; };
+		A2E63BA11CBDC862005FED19 /* AppIcon_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_76.png; sourceTree = "<group>"; };
+		A2E63BA21CBDC862005FED19 /* AppIcon_76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon_76@2x.png"; sourceTree = "<group>"; };
+		A2E63BA31CBDC862005FED19 /* AppIcon_83_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon_83_5@2x.png"; sourceTree = "<group>"; };
+		A2E63BA51CBDC862005FED19 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		A2E63BA61CBDC862005FED19 /* Float+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+Extensions.swift"; sourceTree = "<group>"; };
+		A2E63BA71CBDC862005FED19 /* GameHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHelper.swift; sourceTree = "<group>"; };
+		A2E63BA81CBDC862005FED19 /* Generics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generics.swift; sourceTree = "<group>"; };
+		A2E63BA91CBDC862005FED19 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		A2E63BAA1CBDC862005FED19 /* SCNAction+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNAction+Extensions.swift"; sourceTree = "<group>"; };
+		A2E63BAB1CBDC862005FED19 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		A2E63BAC1CBDC862005FED19 /* GeometryFighter.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = GeometryFighter.scnassets; sourceTree = "<group>"; };
+		A2E63BBB1CBDCC72005FED19 /* ShapeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +86,51 @@
 			children = (
 				A2E63B881CBCF869005FED19 /* AppDelegate.swift */,
 				A2E63B8C1CBCF869005FED19 /* GameViewController.swift */,
+				A2E63BBB1CBDCC72005FED19 /* ShapeType.swift */,
 				A2E63B8E1CBCF869005FED19 /* Main.storyboard */,
+				A2E63B9C1CBDC861005FED19 /* resources */,
 				A2E63B911CBCF869005FED19 /* Assets.xcassets */,
 				A2E63B931CBCF869005FED19 /* LaunchScreen.storyboard */,
 				A2E63B961CBCF869005FED19 /* Info.plist */,
 			);
 			path = GeoStuff;
+			sourceTree = "<group>";
+		};
+		A2E63B9C1CBDC861005FED19 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				A2E63B9D1CBDC861005FED19 /* AppIcon */,
+				A2E63BA41CBDC862005FED19 /* GameUtils */,
+				A2E63BAC1CBDC862005FED19 /* GeometryFighter.scnassets */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		A2E63B9D1CBDC861005FED19 /* AppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				A2E63B9E1CBDC861005FED19 /* AppIcon.afdesign */,
+				A2E63B9F1CBDC862005FED19 /* AppIcon_60@2x.png */,
+				A2E63BA01CBDC862005FED19 /* AppIcon_60@3x.png */,
+				A2E63BA11CBDC862005FED19 /* AppIcon_76.png */,
+				A2E63BA21CBDC862005FED19 /* AppIcon_76@2x.png */,
+				A2E63BA31CBDC862005FED19 /* AppIcon_83_5@2x.png */,
+			);
+			path = AppIcon;
+			sourceTree = "<group>";
+		};
+		A2E63BA41CBDC862005FED19 /* GameUtils */ = {
+			isa = PBXGroup;
+			children = (
+				A2E63BA51CBDC862005FED19 /* Double+Extensions.swift */,
+				A2E63BA61CBDC862005FED19 /* Float+Extensions.swift */,
+				A2E63BA71CBDC862005FED19 /* GameHelper.swift */,
+				A2E63BA81CBDC862005FED19 /* Generics.swift */,
+				A2E63BA91CBDC862005FED19 /* Int+Extensions.swift */,
+				A2E63BAA1CBDC862005FED19 /* SCNAction+Extensions.swift */,
+				A2E63BAB1CBDC862005FED19 /* UIColor+Extensions.swift */,
+			);
+			path = GameUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,9 +192,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2E63BB21CBDC862005FED19 /* AppIcon_83_5@2x.png in Resources */,
 				A2E63B951CBCF869005FED19 /* LaunchScreen.storyboard in Resources */,
+				A2E63BAD1CBDC862005FED19 /* AppIcon.afdesign in Resources */,
+				A2E63BB01CBDC862005FED19 /* AppIcon_76.png in Resources */,
 				A2E63B921CBCF869005FED19 /* Assets.xcassets in Resources */,
+				A2E63BB11CBDC862005FED19 /* AppIcon_76@2x.png in Resources */,
+				A2E63BAE1CBDC862005FED19 /* AppIcon_60@2x.png in Resources */,
+				A2E63BAF1CBDC862005FED19 /* AppIcon_60@3x.png in Resources */,
 				A2E63B901CBCF869005FED19 /* Main.storyboard in Resources */,
+				A2E63BBA1CBDC862005FED19 /* GeometryFighter.scnassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +212,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2E63BB51CBDC862005FED19 /* GameHelper.swift in Sources */,
+				A2E63BB31CBDC862005FED19 /* Double+Extensions.swift in Sources */,
+				A2E63BB81CBDC862005FED19 /* SCNAction+Extensions.swift in Sources */,
 				A2E63B8D1CBCF869005FED19 /* GameViewController.swift in Sources */,
+				A2E63BB61CBDC862005FED19 /* Generics.swift in Sources */,
+				A2E63BB71CBDC862005FED19 /* Int+Extensions.swift in Sources */,
+				A2E63BB41CBDC862005FED19 /* Float+Extensions.swift in Sources */,
+				A2E63BBC1CBDCC72005FED19 /* ShapeType.swift in Sources */,
+				A2E63BB91CBDC862005FED19 /* UIColor+Extensions.swift in Sources */,
 				A2E63B891CBCF869005FED19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +377,7 @@
 				A2E63B9B1CBCF869005FED19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

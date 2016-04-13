@@ -104,7 +104,7 @@ class GameHelper {
     
     func loadSound(name:String, fileNamed:String) {
         let sound = SCNAudioSource(fileNamed: fileNamed)
-        sound.load()
+        sound!.load()
         sounds[name] = sound
     }
     
