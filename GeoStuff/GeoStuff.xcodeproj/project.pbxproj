@@ -27,6 +27,8 @@
 		A2E63BB91CBDC862005FED19 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BAB1CBDC862005FED19 /* UIColor+Extensions.swift */; };
 		A2E63BBA1CBDC862005FED19 /* GeometryFighter.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BAC1CBDC862005FED19 /* GeometryFighter.scnassets */; };
 		A2E63BBC1CBDCC72005FED19 /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63BBB1CBDCC72005FED19 /* ShapeType.swift */; };
+		A2E63BC01CBDD3DE005FED19 /* Trail.scnp in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BBE1CBDD3DE005FED19 /* Trail.scnp */; };
+		A2E63BC11CBDD3DE005FED19 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E63BBF1CBDD3DE005FED19 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		A2E63BAB1CBDC862005FED19 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		A2E63BAC1CBDC862005FED19 /* GeometryFighter.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = GeometryFighter.scnassets; sourceTree = "<group>"; };
 		A2E63BBB1CBDCC72005FED19 /* ShapeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
+		A2E63BBE1CBDD3DE005FED19 /* Trail.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Trail.scnp; sourceTree = "<group>"; };
+		A2E63BBF1CBDD3DE005FED19 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		A2E63B871CBCF869005FED19 /* GeoStuff */ = {
 			isa = PBXGroup;
 			children = (
+				A2E63BBD1CBDD3A1005FED19 /* Particles */,
 				A2E63B881CBCF869005FED19 /* AppDelegate.swift */,
 				A2E63B8C1CBCF869005FED19 /* GameViewController.swift */,
 				A2E63BBB1CBDCC72005FED19 /* ShapeType.swift */,
@@ -131,6 +136,15 @@
 				A2E63BAB1CBDC862005FED19 /* UIColor+Extensions.swift */,
 			);
 			path = GameUtils;
+			sourceTree = "<group>";
+		};
+		A2E63BBD1CBDD3A1005FED19 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				A2E63BBE1CBDD3DE005FED19 /* Trail.scnp */,
+				A2E63BBF1CBDD3DE005FED19 /* spark.png */,
+			);
+			name = Particles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +207,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2E63BB21CBDC862005FED19 /* AppIcon_83_5@2x.png in Resources */,
+				A2E63BC11CBDD3DE005FED19 /* spark.png in Resources */,
 				A2E63B951CBCF869005FED19 /* LaunchScreen.storyboard in Resources */,
+				A2E63BC01CBDD3DE005FED19 /* Trail.scnp in Resources */,
 				A2E63BAD1CBDC862005FED19 /* AppIcon.afdesign in Resources */,
 				A2E63BB01CBDC862005FED19 /* AppIcon_76.png in Resources */,
 				A2E63B921CBCF869005FED19 /* Assets.xcassets in Resources */,
