@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A21722DD1CC1145A002EED82 /* Trail.scnp in Resources */ = {isa = PBXBuildFile; fileRef = A21722DB1CC1145A002EED82 /* Trail.scnp */; };
+		A21722DE1CC1145A002EED82 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A21722DC1CC1145A002EED82 /* spark.png */; };
 		A2E63B041CBAE4B0005FED19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63B031CBAE4B0005FED19 /* AppDelegate.swift */; };
 		A2E63B061CBAE4B0005FED19 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A2E63B051CBAE4B0005FED19 /* GameScene.sks */; };
 		A2E63B081CBAE4B0005FED19 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E63B071CBAE4B0005FED19 /* GameScene.swift */; };
@@ -65,6 +67,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A21722DB1CC1145A002EED82 /* Trail.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Trail.scnp; sourceTree = "<group>"; };
+		A21722DC1CC1145A002EED82 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		A2E63B001CBAE4B0005FED19 /* Blasty Blitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blasty Blitz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E63B031CBAE4B0005FED19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2E63B051CBAE4B0005FED19 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -135,6 +139,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A21722DA1CC1143B002EED82 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				A21722DB1CC1145A002EED82 /* Trail.scnp */,
+				A21722DC1CC1145A002EED82 /* spark.png */,
+			);
+			name = Particles;
+			sourceTree = "<group>";
+		};
 		A2E63AF71CBAE4B0005FED19 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +167,7 @@
 		A2E63B021CBAE4B0005FED19 /* Blasty Blitz */ = {
 			isa = PBXGroup;
 			children = (
+				A21722DA1CC1143B002EED82 /* Particles */,
 				A2E63B191CBAE64C005FED19 /* Content */,
 				A2E63B031CBAE4B0005FED19 /* AppDelegate.swift */,
 				A2E63B741CBB9AA3005FED19 /* Level01.plist */,
@@ -313,6 +327,7 @@
 				A2E63B521CBAE663005FED19 /* Background05@2x.png in Resources */,
 				A2E63B061CBAE4B0005FED19 /* GameScene.sks in Resources */,
 				A2E63B791CBBB143005FED19 /* StarPing.wav in Resources */,
+				A21722DE1CC1145A002EED82 /* spark.png in Resources */,
 				A2E63B121CBAE4B0005FED19 /* LaunchScreen.storyboard in Resources */,
 				A2E63B581CBAE663005FED19 /* Background08@2x.png in Resources */,
 				A2E63B501CBAE663005FED19 /* Background04@2x.png in Resources */,
@@ -327,6 +342,7 @@
 				A2E63B5C1CBAE663005FED19 /* Background10@2x.png in Resources */,
 				A2E63B6A1CBAE663005FED19 /* Background17@2x.png in Resources */,
 				A2E63B681CBAE663005FED19 /* Background16@2x.png in Resources */,
+				A21722DD1CC1145A002EED82 /* Trail.scnp in Resources */,
 				A2E63B711CBAE663005FED19 /* Background@2x.png in Resources */,
 				A2E63B651CBAE663005FED19 /* Background15.png in Resources */,
 				A2E63B701CBAE663005FED19 /* Background20@2x.png in Resources */,
@@ -517,6 +533,7 @@
 				A2E63B181CBAE4B0005FED19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

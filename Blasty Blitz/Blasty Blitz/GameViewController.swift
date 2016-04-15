@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import SceneKit
 
 class GameViewController: UIViewController {
 

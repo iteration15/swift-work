@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
         setupView()
         setupScene()
         setupCamera()
-        setupHUD()
+        //setupHUD()
         
     }
     
@@ -39,11 +39,10 @@ class GameViewController: UIViewController {
     func setupView() {
         scnView = self.view as! SCNView
         
-        // 1
-        scnView.showsStatistics = false
-        // 2
-        scnView.allowsCameraControl = true
-        // 3
+        scnView.showsStatistics = true
+
+        scnView.allowsCameraControl = false
+
         scnView.autoenablesDefaultLighting = true
         
         scnView.delegate = self
@@ -56,7 +55,6 @@ class GameViewController: UIViewController {
         scnView.scene = scnScene
         
         scnScene.background.contents = "GeometryFighter.scnassets/Textures/Background_Diffuse.png"
-
     }
     
     func setupCamera() {
@@ -97,7 +95,7 @@ class GameViewController: UIViewController {
         
         // 4
         let geometryNode = SCNNode(geometry: geometry)
-        geometryNode.physicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
+        //geometryNode.physicsBody = SCNPhysicsBody(type: .Dynamic, shape: nil)
         
         // 1
         let randomX = Float.random(min: -2, max: 2)
@@ -107,7 +105,7 @@ class GameViewController: UIViewController {
         // 3
         let position = SCNVector3(x: 0.05, y: 0.05, z: 0.05)
         // 4
-        geometryNode.physicsBody?.applyForce(force, atPosition: position, impulse: true)
+        //geometryNode.physicsBody?.applyForce(force, atPosition: position, impulse: true)
         
         let color = UIColor.random()
         geometry.materials.first?.diffuse.contents = color
@@ -189,7 +187,7 @@ extension GameViewController: SCNSceneRendererDelegate {
         NSTimeInterval) {
         // 1
         if time > spawnTime {
-            spawnShape()
+            //spawnShape()
             // 2
             spawnTime = time + NSTimeInterval(Float.random(min: 0.2, max: 1.5))
         }
